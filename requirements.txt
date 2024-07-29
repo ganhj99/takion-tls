@@ -7,3 +7,4 @@ requests==2.31.0
 resilient-caller==0.2.2
 tasks-logger==0.1.0
 urllib3==2.2.1
+distro==1.9.0
