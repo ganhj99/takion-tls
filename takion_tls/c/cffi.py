@@ -114,9 +114,9 @@ class LibraryManager:
     def download_asset(self, assets_details: dict):
         """ Download the asset from the given URL. """
         try:
+            print(f"self.library_path {self.library_path}")
             response = requests.get(assets_details.get("download"))
             response.raise_for_status()
-            print(f"self.library_path {self.library_path}")
             asset_path = os.path.join(
                 self.library_path, 
                 "dependencies", 
