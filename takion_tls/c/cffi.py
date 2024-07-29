@@ -116,6 +116,7 @@ class LibraryManager:
         try:
             response = requests.get(assets_details.get("download"))
             response.raise_for_status()
+            print(f"self.library_path {self.library_path}")
             asset_path = os.path.join(
                 self.library_path, 
                 "dependencies", 
