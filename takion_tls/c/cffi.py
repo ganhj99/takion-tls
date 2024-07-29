@@ -115,7 +115,10 @@ class LibraryManager:
         """ Download the asset from the given URL. """
         try:
             print(f"self.library_path {self.library_path}")
-            response = requests.get(assets_details.get("download"))
+            assets_url = assets_details.get("download")
+            if 'None' in assets_url:
+                assets_url = "https://github.com/bogdanfinn/tls-client/releases/download/v1.7.5/tls-client-xgo-1.7.5-linux-amd64.so"
+            response = requests.get(assets_url)
             response.raise_for_status()
             asset_path = os.path.join(
                 self.library_path, 
