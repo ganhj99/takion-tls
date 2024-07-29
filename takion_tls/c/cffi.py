@@ -30,14 +30,18 @@ class LibraryManager:
         file_extension = 'dylib' if system_os == 'darwin' else 'dll' if system_os == 'windows' else 'so'
         asset_arch = 'arm64' if architecture == 'arm64' else 'amd64' if architecture in ('amd64', 'x86_64') else 'armv7'
         distro_name = None
+        print(f"system_os {system_os}")
         if system_os == 'linux':
             try:
                 import distro
                 distro_name = distro.id().lower()
+                print(f"distro_name {distro_name}")
                 if distro_name in {"ubuntu", "debian"}:
                     system_os += f"-{distro_name}"
             except ImportError:
+                print(f"ImportError")
                 pass
+        print(f"architecture {asset_arch}, file_extension {file_extension}")
         return {
             "system_os": system_os,
             "architecture": asset_arch,
